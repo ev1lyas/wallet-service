@@ -80,12 +80,10 @@ docker-compose up --build
 
 **Пример запроса:**
 
-```json
-{
- curl -X POST http://localhost:8080/api/v1/wallet \
+```
+ `curl -X POST http://localhost:8080/api/v1/wallet \
  -H "Content-Type: application/json" \
- -d '{"walletId": "123e4567-e89b-12d3-a456-426614174000", "operationType": "DEPOSIT", "amount": 100}'
-}
+ -d '{"walletId": "123e4567-e89b-12d3-a456-426614174000", "operationType": "DEPOSIT", "amount": 100}'`
 ```
 
 ---
@@ -96,8 +94,8 @@ docker-compose up --build
 
 **Пример запроса:**
 
-```http
-curl http://localhost:8080/api/v1/wallets/{сюда напишите uuid кошелька}
+```
+`curl http://localhost:8080/api/v1/wallets/{сюда напишите uuid кошелька}`
 ```
 
 **Пример ответа:**
