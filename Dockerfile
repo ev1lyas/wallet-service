@@ -16,9 +16,6 @@ COPY . ./
 # Копируем config.env в контейнер
 COPY config/config.env /app/config/config.env
 
-# Копируем тесты в контейнер
-COPY tests /app/tests
-
 # Переходим в директорию с точкой входа в приложение
 WORKDIR /app/cmd/server
 

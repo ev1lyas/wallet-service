@@ -8,7 +8,6 @@ import (
 var (
 	ErrInsufficientFunds = errors.New("insufficient funds")
 	WalletNotFound       = errors.New("wallet not found")
-	ErrInvalidOperation  = errors.New("invalid operation")
 )
 
 func applyOperation(balance int64, operationType string, amount int64) (int64, error) {
