@@ -10,7 +10,8 @@ import (
 )
 
 type Server struct {
-	DB *repository.DB
+	Router *mux.Router
+	DB     *repository.DB
 }
 
 func NewServer(db *repository.DB) *Server {

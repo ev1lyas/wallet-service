@@ -17,6 +17,24 @@ services:
       timeout: 5s
       retries: 5
 
+  wallet-test-db:
+    image: postgres:15
+    container_name: wallet-test-db
+    environment:
+      POSTGRES_USER: test_user
+      POSTGRES_PASSWORD: test_pass
+      POSTGRES_DB: wallet_test_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - test_data:/var/lib/postgresql/data
+      - ./migrations:/docker-entrypoint-initdb.d
+    healthcheck:
+          test: [ "CMD", "test_pg_isready", "-U", "test_user", "-d", "test_db" ]
+          interval: 1s
+          timeout: 5s
+          retries: 5
+
   wallet-service:
     build:
       context: ./  # Контекст сборки
@@ -32,3 +50,4 @@ services:
 
 volumes:
   wallet_data:
+  test_data:
